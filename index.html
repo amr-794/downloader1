@@ -1,29 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Video Downloader</title>
+    <title>موقع تنزيل الفيديوهات</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Advanced Video Downloader</h1>
-            <p>Download videos from multiple platforms with ease and high speed</p>
-        </header>
-        <main>
-            <div class="input-section">
-                <input type="url" id="video-url" placeholder="Paste video URL here..." required>
-                <button id="download-btn">Download</button>
-            </div>
-            <div id="output"></div>
-        </main>
-        <footer>
-            <p>Designed for educational purposes only</p>
-        </footer>
-    </div>
+    <header>
+        <h1>تنزيل الفيديوهات بسهولة</h1>
+        <p>قم بتنزيل مقاطع الفيديو من أي منصة بسرعة وسهولة.</p>
+    </header>
+    <main>
+        <form id="download-form">
+            <input type="text" id="video-url" placeholder="أدخل رابط الفيديو هنا" required>
+            <button type="submit">تنزيل الفيديو</button>
+        </form>
+        <div id="progress-container" style="display:none;">
+            <div id="progress-bar"></div>
+            <p id="progress-text">0%</p>
+        </div>
+        <div id="video-container" style="display:none;">
+            <h2>الفيديو الذي تم تنزيله:</h2>
+            <video id="downloaded-video" controls></video>
+        </div>
+        <div id="features">
+            <h2>الميزات المتقدمة</h2>
+            <ul>
+                <li>دعم جميع المنصات</li>
+                <li>خيارات جودة متعددة</li>
+                <li>تنسيقات فيديو مختلفة</li>
+                <li>واجهة مستخدم سهلة الاستخدام</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>جميع الحقوق محفوظة © 2024</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

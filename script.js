@@ -1,19 +1,28 @@
-document.getElementById('download-btn').addEventListener('click', function() {
-    const url = document.getElementById('video-url').value;
-    const output = document.getElementById('output');
+document.getElementById('download-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const videoUrl = document.getElementById('video-url').value;
 
-    if (!url) {
-        output.textContent = 'Please enter a valid URL.';
-        output.style.color = 'red';
-        return;
-    }
+    // عرض شريط التقدم
+    document.getElementById('progress-container').style.display = 'block';
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
 
-    output.textContent = 'Preparing your download...';
-    output.style.color = 'yellow';
-
-    // Simulated processing with a timeout
-    setTimeout(() => {
-        output.innerHTML = `<a href="${url}" download class="download-link">Click here to start the download</a>`;
-        output.style.color = 'green';
-    }, 3000);
+    // محاكاة عملية التنزيل
+    let progress = 0;
+    const interval = setInterval(() => {
+        if (progress < 100) {
+            progress += 10; // زيادة التقدم
+            progressBar.style.width = progress + '%';
+            progressText.innerText = progress + '%';
+        } else {
+            clearInterval(interval);
+            // هنا يمكنك وضع كود لتحميل الفيديو فعلياً
+            // وفي هذا المثال سنقوم بتحميل فيديو افتراضي
+            const downloadedVideoSrc = 'path_to_your_video.mp4'; // استبدل بمسار الفيديو الفعلي
+            const videoElement = document.getElementById('downloaded-video');
+            videoElement.src = downloadedVideoSrc;
+            videoElement.style.display = 'block';
+            document.getElementById('video-container').style.display = 'block';
+        }
+    }, 500); // مدة كل زيادة في النسبة
 });
